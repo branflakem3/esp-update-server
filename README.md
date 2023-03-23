@@ -97,7 +97,7 @@ void checkForUpdates(void)
 }
 ```
 
-### ESP8266 Implementation
+### ESP8266 Implementation - Known good 3/23/2023
 
 For _ESP8266_ the implementation is very similar with a few changes. Remember to change the IP address in the code to match your own.
 
@@ -107,9 +107,9 @@ For _ESP8266_ the implementation is very similar with a few changes. Remember to
 #include <ESP8266WiFi.h>
 
 #define VERSION "v0.0.1"  // Version number
-#define HOST "sensorname" // Put platform name here
+#define HOST "platform_name" // Put platform name here
 
-const char* urlBase = "http://192.168.0.10:8080/update"; # Set to your IP
+const char* urlBase = "http://192.168.0.10:8080/update"; // Set to your IP
 
 /***************************************************/
 void checkForUpdates(void)
@@ -135,6 +135,17 @@ void checkForUpdates(void)
       break;
     }
 }
+void setup() {
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  // Check for updates every 30 seconds
+  delay(30000);
+  checkForUpdates();
+}
+
 ```
 
 ## Legal
