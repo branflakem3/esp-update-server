@@ -106,26 +106,26 @@ For _ESP8266_ the implementation is very similar with a few changes. Remember to
 #include <ESP8266httpUpdate.h>
 #include <ESP8266WiFi.h>
 
-#define VERSION "v1.0.2"
-#define HOST "Chase"
+#define VERSION "v0.0.1"  # Version number
+#define HOST "sensorname" # Put platform name here
 
-const char* urlBase = "http://192.168.0.10:5000/update";
+const char* urlBase = "http://192.168.0.10:5000/update"; # Set to your IP
 
 /***************************************************/
 void checkForUpdates(void)
 {
   String checkUrl = String( urlBase);
-  checkUrl.concat( "?ver=" + String(VERSION) );
-  checkUrl.concat( "&dev=" + String(HOST) );
+  checkUrl.concat( "?ver=" + String(VERSION));
+  checkUrl.concat( "&dev=" + String(HOST));
 
-  Serial.println("INFO: Checking for updates at URL: " + String( checkUrl ) );
+  Serial.println("INFO: Checking for updates at URL: " + String(checkUrl));
+  WiFiClient client;
+  t_httpUpdate_return ret = httpUpdate.update(client, checkUrl);
   
-  t_httpUpdate_return ret = ESPhttpUpdate.update( checkUrl );
-
   switch (ret) {
     default:
     case HTTP_UPDATE_FAILED:
-      Serial.println("ERROR: HTTP_UPDATE_FAILD Error (" + String(ESPhttpUpdate.getLastError()) + "): " + ESPhttpUpdate.getLastErrorString().c_str());
+      Serial.println("ERROR: HTTP_UPDATE_FAILED Error (" + String(ESPhttpUpdate.getLastError()) + "): " + ESPhttpUpdate.getLastErrorString().c_str());
       break;
     case HTTP_UPDATE_NO_UPDATES:
       Serial.println("INFO: HTTP_UPDATE_NO_UPDATES");
