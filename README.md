@@ -68,7 +68,7 @@ Below if an implementation for _ESP32_ that works with the server. Remember to c
 #define VERSION "v1.0.2"
 #define HOST "Chase"
 
-const char* urlBase = "http://192.168.0.10:5000/update";
+const char* urlBase = "http://192.168.0.10:8080/update";
 
 /***************************************************/
 void checkForUpdates(void)
@@ -109,7 +109,7 @@ For _ESP8266_ the implementation is very similar with a few changes. Remember to
 #define VERSION "v0.0.1"  # Version number
 #define HOST "sensorname" # Put platform name here
 
-const char* urlBase = "http://192.168.0.10:5000/update"; # Set to your IP
+const char* urlBase = "http://192.168.0.10:8080/update"; # Set to your IP
 
 /***************************************************/
 void checkForUpdates(void)
