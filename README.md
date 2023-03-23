@@ -106,8 +106,8 @@ For _ESP8266_ the implementation is very similar with a few changes. Remember to
 #include <ESP8266httpUpdate.h>
 #include <ESP8266WiFi.h>
 
-#define VERSION "v0.0.1"  # Version number
-#define HOST "sensorname" # Put platform name here
+#define VERSION "v0.0.1"  // Version number
+#define HOST "sensorname" // Put platform name here
 
 const char* urlBase = "http://192.168.0.10:8080/update"; # Set to your IP
 
