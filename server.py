@@ -94,9 +94,10 @@ def update():
                         if os.path.isfile(app.config['UPLOAD_FOLDER'] + '/' + platforms[__dev]['file']):
                             platforms[__dev]['downloads'] += 1
                             save_yaml(platforms)
-                            return send_from_directory(directory=app.config['UPLOAD_FOLDER'], filename=platforms[__dev]['file'],
-                                                       as_attachment=True, mimetype='application/octet-stream',
-                                                       attachment_filename=platforms[__dev]['file'])
+                            #return send_from_directory(directory=app.config['UPLOAD_FOLDER'], filename=platforms[__dev]['file'],
+                            #                           as_attachment=True, mimetype='application/octet-stream',
+                            #                           attachment_filename=platforms[__dev]['file'])
+                            return send_from_directory(directory=app.config['UPLOAD_FOLDER'], path=platforms[__dev]['file'], as_attachment=True, mimetype='application/octet-stream',download_name=platforms[__dev]['file'])
                     else:
                         log_event("INFO: No update needed.")
                         return 'No update needed.', 304
