@@ -120,7 +120,7 @@ void checkForUpdates(void)
 
   Serial.println("INFO: Checking for updates at URL: " + String(checkUrl));
   WiFiClient client;
-  t_httpUpdate_return ret = httpUpdate.update(client, checkUrl);
+  t_httpUpdate_return ret = ESPhttpUpdate.update(client, checkUrl);
   
   switch (ret) {
     default:
